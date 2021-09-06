@@ -7,37 +7,46 @@ namespace ClassMethods
     {
         static void Main(string[] args)
         {
-            Car car1 = new Car("BMW", 3000, 4);
-            Car car2 = new Car("Toyota", 2000, 10);
-            Car car3 = new Car("Audi", 5000, 6);
+            Car car1 = new Car("BMW", 1000, 0);
+            Car car2 = new Car("Toyota", 1000, 0);
+            Car car3 = new Car("Audi", 1000, 0);
 
-            Firma rental1 = new Firma();
-            Firma rental2 = new Firma();
+            Firma rental1 = new Firma(car1);
+            Firma rental2 = new Firma(car2);
+            rental2.AvailableCars.Add(car3);    //have to add cars in another way due to me changing the code on Firma.cs
 
-            rental1.AvailableCars.Add(car1);
-            rental1.AvailableCars.Add(car2);
-            
-            rental2.AvailableCars.Add(car3);
+            rental1.RentCar(car1, 1, 2);
+            rental2.RentCar(car2, 1, 2);
+            rental2.RentCar(car3, 1, 2);
 
-            car1.RentCar(3, 3);
-            car3.RentCar(1, 5);
+            Console.WriteLine("Total revenue\nRental 1: " + rental1.TotalRevenue + "kr\nRental 2: " + rental2.TotalRevenue + "kr\n");
 
-            Console.WriteLine("Total revenue\nRental 1: " + rental1.TotalRevenue + "kr\nRental 2: " + rental2.TotalRevenue + "kr");
-            
+            Functions f = new Functions();
+            f.CarList(rental2);
+
             //foreach (var item in rental1.AvailableCars)
             //{
             //    Console.WriteLine(item.CarName);
             //}
-            
-           
-
-            
-
-           
 
 
 
-            
+            /*
+            Det är för att du lägger revenue på uthyrningsstället just nu
+            Nej sorry, jag läste fel
+            Såhär, du skapar nu en separat firma inne i Car.cs
+            Den har inget med firmorna du skapat i Main att göra
+            Om du vill lägga pengarna där behöver du flytta RentCar-metoden till Firma istället, den kan i sin tur anropa en metod för den valda bilen som returnerar värdeökningen
+            Alltså, Firma.RentCar(vilkenBil)
+
+            Sen RentCar(Car car) { TotalRevenue += car.NyRäkneMetod()}
+             */
+
+
+
+
+
+
         }
     }
 }

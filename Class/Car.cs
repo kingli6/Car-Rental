@@ -8,35 +8,52 @@ namespace ClassMethods
 {
     class Car
     {
-        //Blue print for a car(Bilmärke, pris/dag, total milage)
+        //Template for a car(Bilmärke, pris/dag, total milage)
         public string CarName;
         public float PricePerDay;
         public float CarMilage;
-        public float Revenue;
-
+        public float CarRevenue;
         //Constructor
         public Car() { }
-
-        public Car(string _CarName, float _PricePerDay, float _TotalMilage)
+        public Car(string _CarName, float _PricePerDay, float _Milage)
         {
             CarName = _CarName;
             PricePerDay = _PricePerDay;
-            CarMilage = _TotalMilage;
-        }
-        Firma r = new Firma();
-        //method to take the car out
-        public void RentCar(int days, float milesPerday)
-        {
-            Revenue += days * PricePerDay;
-            CarMilage += days * milesPerday;
-            r.TotalRevenue += Revenue;
-        }
+            CarMilage = _Milage;
+        }//Constructor ends ^^^^
+
+
+
+
+
+
+
+
+
+
+
 
         public override string ToString()
         {
-            return $"This {CarName} has run {CarMilage} kilometers and generated {Revenue} kr.";
+            return $"This {CarName} has run {CarMilage} kilometers and generated {CarRevenue} kr.";
         }
-
 
     }
 }
+/*
+        ////method to hire the car
+        //public void RentCar(int days, float milesPerDay)
+        //{
+        //    Revenue += days * PricePerDay;
+        //    CarMilage += days * milesPerDay;
+        //    r.TotalRevenue += Revenue;
+        //}
+
+
+            Såhär, du skapar nu en separat firma inne i Car.cs
+            Den har inget med firmorna du skapat i Main att göra
+            Om du vill lägga pengarna där behöver du flytta RentCar-metoden till Firma istället, den kan i sin tur anropa en metod för den valda bilen som returnerar värdeökningen
+            Alltså, Firma.RentCar(vilkenBil)
+
+            Sen RentCar(Car car) { TotalRevenue += car.NyRäkneMetod()}
+             */

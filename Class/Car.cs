@@ -20,20 +20,11 @@ namespace ClassMethods
             CarName = _CarName;
             PricePerDay = _PricePerDay;
             CarMilage = _Milage;
-        }//Constructor ends ^^^^
-
-
-
-
-
-
-
-
-
-
+        }
 
 
         public override string ToString()
+        //https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/how-to-override-the-tostring-method
         {
             return $"This {CarName} has run {CarMilage} kilometers and generated {CarRevenue} kr.";
         }

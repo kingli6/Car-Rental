@@ -9,7 +9,7 @@ namespace ClassMethods
     {
         public List<Car> AvailableCars = new List<Car>();
         public float TotalRevenue;
-        //trying to get to print the name of the Firma object
+        //trying to get to print the name of the Firma's object
         public Type objtype;
         public Firma() { }
         public Firma(Car car)

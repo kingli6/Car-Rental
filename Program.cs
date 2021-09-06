@@ -10,8 +10,13 @@ namespace ClassMethods
             Car car1 = new Car("BMW", 1000, 0);
             Car car2 = new Car("Toyota", 1000, 0);
             Car car3 = new Car("Audi", 1000, 0);
+            Car car4 = new Car("Benz", 1000, 0);
+            Car car5 = new Car("tesla", 1000, 0);
 
             Firma rental1 = new Firma(car1);
+            rental1.AvailableCars.Add(car4);
+            rental1.AvailableCars.Add(car5);
+
             Firma rental2 = new Firma(car2);
             rental2.AvailableCars.Add(car3);    //have to add cars in another way due to me changing the code on Firma.cs
 
@@ -23,12 +28,7 @@ namespace ClassMethods
 
             Functions f = new Functions();
             f.CarList(rental2);
-
-            //foreach (var item in rental1.AvailableCars)
-            //{
-            //    Console.WriteLine(item.CarName);
-            //}
-
+            f.CarsAvailable(rental1);
 
 
             /*
